@@ -5,9 +5,6 @@
             <div class="player__controls--btn" @click.stop="togglePlay()">
                 <div class="btn-play" :class="{stop: !playing}"></div>
             </div>
-            <div class="player__controls--current" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('current')!='-1'">{{playedTime}}</div>
-            <progress-bar ref="progress" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('progress')!='-1'" class="player__controls--progress" @changeProgress="onMediaChangeProgress" />
-            <div class="player__controls--durration" :class="{error:error}" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('durration')!='-1'">{{error ? 'error!' : lengthTime}}</div>
         </div>
     </div>
 </template>

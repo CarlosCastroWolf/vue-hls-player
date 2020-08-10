@@ -5,16 +5,6 @@
             <div class="player__controls--btn" @click.stop="togglePlay()">
                 <div class="btn-play" :class="{stop: !playing}"></div>
             </div>
-            <div class="player__controls--current" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('current')!='-1'">{{playedTime}}</div>
-            <progress-bar ref="progress" class="player__controls--progress" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('progress')!='-1'" @changeProgress="onMediaChangeProgress" />
-            <div class="player__controls--durration" :class="{error:error}" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('durration')!='-1'">{{error ? 'error!' : lengthTime}}</div>
-            <div class="player__controls--btn" v-if="playerOptions.controls===undefined || playerOptions.controls.indexOf('volume')!='-1'" @mouseenter="volumeBarShow=true" @mouseleave="volumeBarShow=false">
-                <volume-bar @changeVolume="onMediaVolumeChange" v-model="volume" v-if="volumeBarShow" />
-                <div class="btn-volume" @click="volume = volume==0 ? 1 : 0">
-                    <div class="volume"></div>
-                    <div class="muted" v-if="muted"></div>
-                </div>
-            </div>
         </div>
     </div>
 </template>
