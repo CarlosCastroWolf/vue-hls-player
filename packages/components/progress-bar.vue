@@ -26,11 +26,6 @@ export default {
         },true)
     },
     methods: {
-        initProgress(load,play,len){
-            this.loaded = load;
-            this.played = play;
-            this.length = len;
-        },
         changeProgress(e,type){
             if(type){
                 this.$emit('changeProgress',parseInt(e.offsetX*100/this.$refs.mediaLength.offsetWidth)/100);
