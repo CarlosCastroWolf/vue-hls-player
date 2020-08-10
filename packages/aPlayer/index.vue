@@ -124,19 +124,16 @@ export default {
             } else {
                 this.loadedLength = 0
             }
-            this.$refs.progress.initProgress(this.loadedLength,this.playedLength,this.dataLength)
         },
         onMediaDurationChange(){
             if (this.media.duration !== 1) {
                 this.dataLength = this.media.duration;
                 this.lengthTime = BASE.turnTime(parseInt(this.media.duration))
             }
-            this.$refs.progress.initProgress(this.loadedLength,this.playedLength,this.dataLength)
         },
         onMediaSeeking(){
             this.playedLength = this.media.currentTime;
             this.playedTime = BASE.turnTime(parseInt(this.media.currentTime))
-            this.$refs.progress.initProgress(this.loadedLength,this.playedLength,this.dataLength)
         },
         onMediaChangeProgress(v){
             this.media.currentTime = parseInt(v * this.dataLength);
